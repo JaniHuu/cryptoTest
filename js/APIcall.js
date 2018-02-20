@@ -2,7 +2,10 @@ var poloUrl = [
    'https://poloniex.com/public?command=returnOrderBook&currencyPair=ALL'
   ];
 
+// Parsed data for plotting
 var defData = [];
+// Parsed keys from Poloniex order book
+var dataKeys = [];
      
 $(document).ready(function() {
     CallHandler(poloUrl);
@@ -12,6 +15,7 @@ $(document).ready(function() {
 function CallHandler(urlList){
   for(var i = 0; i < urlList.length; i++){
     APICall(urlList[i]).then(res =>parseOrderBook(res));
+    //APICall(urlList[i]).then(res =>poloParser(res)); Uncomment for full poloniex orderbook
   }
 }
 
@@ -26,12 +30,12 @@ async function APICall(url){
 // Parse data from poloniex, iterate through keys and values
 function poloParser(poloniexData){
   var loggerData;
-  var keys = Object.keys(poloniexData);
-  for(var i = 0; i < keys.length; i++){
-    loggerData = (1+i)+". "+keys[i]+": ";
-    var altKeys = Object.keys(poloniexData[keys[i]]);
+  dataKeys = Object.keys(poloniexData);
+  for(var i = 0; i < dataKeys.length; i++){
+    loggerData = (1+i)+". "+dataKeys[i]+": ";
+    var altKeys = Object.keys(poloniexData[dataKeys[i]]);
     for(var j = 0; j < altKeys.length; j++){
-      loggerData = loggerData + altKeys[j]+": " + poloniexData[keys[i]][altKeys[j]]+", ";
+      loggerData = loggerData + altKeys[j]+": " + poloniexData[dataKeys[i]][altKeys[j]]+", ";
     }
     var info = document.getElementById("first");
     var para = document.createElement("p");
