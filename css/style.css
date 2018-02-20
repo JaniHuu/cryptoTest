@@ -1,0 +1,43 @@
+body{
+    background-image: url("../img/btcBgr.png");
+}
+button{
+    width: 100%;
+    background-color: white;
+}
+
+#first{
+    padding-bottom: 1em;
+    background-color: #ffffff;
+    opacity: 0.4;
+}
+
+#second{
+    padding-top: 1em;
+}
+
+#firstBtnDiv{
+    background-color: black;
+    min-height: 2em;
+    padding: 0;
+}
+
+#firstData{
+    background-color: white;
+    margin-top: 55px;
+    
+}
+
+#mainPara{
+    background-color: #7f7f7f;
+    opacity: 0.6;
+    height: 100vh;
+}
+
+#footerTest{
+    background-color: red;
+}
+
+#topNav{
+    opacity: 0.95;
+}
