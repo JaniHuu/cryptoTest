@@ -14,7 +14,7 @@ $(document).ready(function() {
 // Fire async API call from list
 function CallHandler(urlList){
   for(var i = 0; i < urlList.length; i++){
-    APICall(urlList[i]).then(res =>poloParser(res));
+    APICall(urlList[i]).then(res =>parseOrderBook(res));
   }
 }
 
